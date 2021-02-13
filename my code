@@ -1,0 +1,14 @@
+the_file = open('mbox-short.txt')
+for all_lines in the_file:
+    all_lines = all_lines.rstrip()
+    if not all_lines.startswith("X-DSPAM-Confidence:") :
+        continue
+    extracted_lines = all_lines
+    cut_start_location = extracted_lines.find(':')
+    extracted_numbers = extracted_lines[cut_start_location+2 : 666]
+    print(extracted_numbers)
+line_amount = 0
+for x in extracted_numbers:
+    line_amount = line_amount + 1
+print("line amount: ", line_amount)
+print("Done")
